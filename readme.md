@@ -16,3 +16,12 @@ and in a third window run:
 `./start-load-balancer.sh`
 
 Take this example, and introduce a redis server to hold the state.
+
+mvn clean package
+cf push remove-session-state -p target/remove-session-state-lab.war -i 2 --random-route --no-start
+
+cf start remove-session-state
+
+
+./gradlew replatformingRemoveInstanceSpecificState -PsessionStateUrl=https://remove-session-state-fantastic-oryx.cfapps.io
+
